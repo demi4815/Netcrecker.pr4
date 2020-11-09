@@ -2,21 +2,7 @@ package ua.edu.sumdu.ta.Karina.pr4;
 
 public class LinkedTaskList extends AbstractTaskList
 {
-    private Task task;
-    private LinkedTaskList next;
-    private LinkedTaskList head;
-    private LinkedTaskList tail;
 
-    public LinkedTaskList()
-    {
-        /*
-        next = null;
-        head = null;
-        tail = null;
-        */
-        count = 0;
-        numberOfLists++;
-    }
 
     public LinkedTaskList(Task task)
     {
@@ -109,7 +95,7 @@ public class LinkedTaskList extends AbstractTaskList
 
     public Task[] incoming(int from, int to)
     {
-        Task[] data = new Task[mLength];
+        Task[] data = new Task[count];
 
         int k = 0;
 
@@ -152,9 +138,15 @@ public class LinkedTaskList extends AbstractTaskList
     }
 
 
+    public LinkedTaskList()
+    {
+        count = 0;
+        numberOfLists++;
+    }
 
-
-
-
+    private Task task;
+    private LinkedTaskList next;
+    private LinkedTaskList head;
+    private LinkedTaskList tail;
 
 }
