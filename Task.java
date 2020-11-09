@@ -242,7 +242,14 @@ public class Task
         if(check(start, end, repeat))
         {
             setTitle(title);
-            setTime(start, end, repeat);
+            if(repeat == 0)
+            {
+                setTime(start);
+            }
+            else
+            {
+                setTime(start, end, repeat);
+            }
             setActive(false);
         }
         else System.out.print("Incorrect data");
