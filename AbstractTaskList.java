@@ -2,10 +2,10 @@ package ua.edu.sumdu.ta.Karina.pr4;
 
 public abstract class AbstractTaskList
 {
-    abstract void add(Task task);
-    abstract void remove(Task task);
-    abstract Task getTask(int index);
-    abstract Task[] incoming(int from, int to);
+    public abstract void add(Task task);
+    public abstract void remove(Task task);
+    public abstract Task getTask(int index);
+    public abstract Task[] incoming(int from, int to);
 
     public int size()
     {
