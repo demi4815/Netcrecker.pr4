@@ -2,8 +2,6 @@ package ua.edu.sumdu.ta.Karina.pr4;
 
 public class LinkedTaskList extends AbstractTaskList
 {
-
-
     public LinkedTaskList(Task task)
     {
         this.task = task;
@@ -77,9 +75,9 @@ public class LinkedTaskList extends AbstractTaskList
     {
         assert(index >= 0 && index < count);
 
-        if(index == 0) return head.task;
+        if(index == 0) { return head.task; }
 
-        if(index == count - 1) return tail.task;
+        if(index == count - 1) { return tail.task; }
 
         LinkedTaskList current = head;
 
