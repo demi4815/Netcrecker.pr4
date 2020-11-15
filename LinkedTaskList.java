@@ -2,6 +2,17 @@ package ua.edu.sumdu.ta.Karina.pr4;
 
 public class LinkedTaskList extends AbstractTaskList
 {
+    private Task task;
+    private LinkedTaskList next;
+    private LinkedTaskList head;
+    private LinkedTaskList tail;
+
+    public LinkedTaskList()
+    {
+        count = 0;
+        numberOfLists++;
+    }
+
     public LinkedTaskList(Task task)
     {
         this.task = task;
@@ -26,6 +37,44 @@ public class LinkedTaskList extends AbstractTaskList
             tail.next = node;
             tail = node;
         }
+
+        count++;
+    }
+
+    @Override
+    public void add(int index, Task task)
+    {
+        assert(index >= 0 && index < count);
+
+        task.title = startOfTitle + " " + task.title;
+
+        LinkedTaskList node = new LinkedTaskList(task);
+
+        LinkedTaskList current = head;
+
+        if (index == 0)
+        {
+            node.next = head;
+            head = node;
+        }
+            else if(index == count - 1)
+            {
+                add(task);
+            }
+                else
+                {
+                    int k = 0;
+                    while (k < index - 1)
+                    {
+                        current = current.next;
+                        k++;
+                    }
+
+                    LinkedTaskList tmp = new LinkedTaskList();
+                    tmp = current.next;
+                    current.next = node;
+                    node.next = tmp;
+                }
 
         count++;
     }
@@ -136,15 +185,6 @@ public class LinkedTaskList extends AbstractTaskList
     }
 
 
-    public LinkedTaskList()
-    {
-        count = 0;
-        numberOfLists++;
-    }
 
-    private Task task;
-    private LinkedTaskList next;
-    private LinkedTaskList head;
-    private LinkedTaskList tail;
 
 }

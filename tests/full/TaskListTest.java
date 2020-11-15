@@ -40,6 +40,16 @@ public class TaskListTest {
         assertEqualTasks(ts, tasks);
     }
     @Test
+    public void testAddWithIndex() {
+        assertEquals(0, tasks.size());
+        Task[] ts = {new Task("a",0), new Task("b",1), new Task("c",2)};
+        for (Task t : ts)
+            tasks.add(t);
+        tasks.add(1, ts[2]);
+        Task[] expectedTs = {ts[0], ts[2], ts[1], ts[2]};
+        assertEqualTasks(expectedTs, tasks);
+    }
+    @Test
     public void testRemove() {
         Task[] ts = {new Task("a",0), new Task("b",1), new Task("c",2)};
         tasks.add(ts[0]);

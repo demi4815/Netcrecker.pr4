@@ -2,6 +2,13 @@ package ua.edu.sumdu.ta.Karina.pr4;
 
 public class ArrayTaskList extends AbstractTaskList
 {
+    public ArrayTaskList()
+    {
+        mTask = new Task[0];
+        mLength = 0;
+        count = 0;
+        numberOfLists++;
+    }
 
     @Override
     public void add(Task task)
@@ -18,7 +25,13 @@ public class ArrayTaskList extends AbstractTaskList
         count++;
     }
 
-    public void resize()
+    @Override
+    public void add(int index, Task task)
+    {
+
+    }
+
+    private void resize()
     {
         Task[] data = new Task[mLength + value];
 
@@ -109,14 +122,6 @@ public class ArrayTaskList extends AbstractTaskList
             System.arraycopy(data, 0, incoming, 0, k);
         }
         return incoming;
-    }
-
-    public ArrayTaskList()
-    {
-        mTask = new Task[0];
-        mLength = 0;
-        count = 0;
-        numberOfLists++;
     }
 
 }

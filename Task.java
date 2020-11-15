@@ -11,6 +11,37 @@ package ua.edu.sumdu.ta.Karina.pr4;
 
 public class Task
 {
+
+    public String title;
+    protected int time, start, end, repeat;
+    protected boolean active;
+
+    /**
+     * Task class constructor for a repeated tasks
+     * A new task is considered inactive when created
+     * @param title - task title
+     * @param start - start time of task notification
+     * @param end - time to stop task alert
+     * @param repeat - time interval after which it is necessary to repeat the task notification
+     */
+    public Task(String title, int start, int end, int repeat)
+    {
+        if(check(start, end, repeat))
+        {
+            setTitle(title);
+            if(repeat == 0)
+            {
+                setTime(start);
+            }
+            else
+            {
+                setTime(start, end, repeat);
+            }
+            setActive(false);
+        }
+        else System.out.print("Incorrect data");
+    }
+
     /**
      * Method to get the title of the task
      * @return title of the task
@@ -229,33 +260,4 @@ public class Task
         else System.out.print("Incorrect data");
     }
 
-    /**
-     * Task class constructor for a repeated tasks
-     * A new task is considered inactive when created
-     * @param title - task title
-     * @param start - start time of task notification
-     * @param end - time to stop task alert
-     * @param repeat - time interval after which it is necessary to repeat the task notification
-     */
-    public Task(String title, int start, int end, int repeat)
-    {
-        if(check(start, end, repeat))
-        {
-            setTitle(title);
-            if(repeat == 0)
-            {
-                setTime(start);
-            }
-            else
-            {
-                setTime(start, end, repeat);
-            }
-            setActive(false);
-        }
-        else System.out.print("Incorrect data");
-    }
-
-    public String title;
-    protected int time, start, end, repeat;
-    protected boolean active;
 }
